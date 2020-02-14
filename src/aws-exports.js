@@ -8,7 +8,12 @@ const awsmobile = {
     "aws_appsync_apiKey": "da2-i5hwcdtrvvakzbgiegjh4cifzi",
     "aws_content_delivery_bucket": "stream4thewin-20200214102706-hostingbucket-develop",
     "aws_content_delivery_bucket_region": "eu-west-1",
-    "aws_content_delivery_url": "https://d2o12eq21my63z.cloudfront.net"
+    "aws_content_delivery_url": "https://d2o12eq21my63z.cloudfront.net",
+    "aws_cognito_identity_pool_id": "eu-west-1:8e7f5acc-5c81-4741-8acd-258b53192dac",
+    "aws_cognito_region": "eu-west-1",
+    "aws_user_pools_id": "eu-west-1_qorZ49BOa",
+    "aws_user_pools_web_client_id": "79e6mt6il6i9p8983lk333gkjd",
+    "oauth": {}
 };
 
 
