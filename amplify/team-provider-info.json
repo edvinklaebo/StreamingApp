@@ -1,0 +1,15 @@
+{
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-stream4thewin-develop-172616-authRole",
+            "UnauthRoleArn": "arn:aws:iam::203460254573:role/amplify-stream4thewin-develop-172616-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::203460254573:role/amplify-stream4thewin-develop-172616-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-stream4thewin-develop-172616-deployment",
+            "UnauthRoleName": "amplify-stream4thewin-develop-172616-unauthRole",
+            "StackName": "amplify-stream4thewin-develop-172616",
+            "StackId": "arn:aws:cloudformation:eu-west-1:203460254573:stack/amplify-stream4thewin-develop-172616/9cad8f00-4e7d-11ea-8ab9-0a1312d0cd8a",
+            "AmplifyAppId": "d3q84mfzo9yd64"
+        }
+    }
+}
