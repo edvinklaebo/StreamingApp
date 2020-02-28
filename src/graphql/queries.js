@@ -7,6 +7,8 @@ export const getTodo = /* GraphQL */ `
       id
       name
       description
+      createdAt
+      updatedAT
     }
   }
 `;
@@ -21,8 +23,35 @@ export const listTodos = /* GraphQL */ `
         id
         name
         description
+        createdAt
+        updatedAT
       }
       nextToken
+    }
+  }
+`;
+export const searchTodos = /* GraphQL */ `
+  query SearchTodos(
+    $filter: SearchableTodoFilterInput
+    $sort: SearchableTodoSortInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    searchTodos(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        description
+        createdAt
+        updatedAT
+      }
+      nextToken
+      total
     }
   }
 `;

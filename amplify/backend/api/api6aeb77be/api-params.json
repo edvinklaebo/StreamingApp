@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/chat",
+            "lambdaFunction": "stream4thewin9c10776e",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "api6aeb77be",
+    "apiName": "api6aeb77be",
+    "functionArns": [
+        {
+            "lambdaFunction": "stream4thewin9c10776e"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-stream4thewin-develop-172616-authRole",
+        "unAuthRoleName": "amplify-stream4thewin-develop-172616-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "stream4thewin9c10776e",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

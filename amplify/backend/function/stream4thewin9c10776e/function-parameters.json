@@ -1,0 +1,12 @@
+{
+    "permissions": {
+        "api": {
+            "stream4thewin": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

@@ -6,6 +6,13 @@ const awsmobile = {
     "aws_appsync_region": "eu-west-1",
     "aws_appsync_authenticationType": "API_KEY",
     "aws_appsync_apiKey": "da2-i5hwcdtrvvakzbgiegjh4cifzi",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "api6aeb77be",
+            "endpoint": "https://mujt0j8pm9.execute-api.eu-west-1.amazonaws.com/develop",
+            "region": "eu-west-1"
+        }
+    ],
     "aws_content_delivery_bucket": "stream4thewin-20200214102706-hostingbucket-develop",
     "aws_content_delivery_bucket_region": "eu-west-1",
     "aws_content_delivery_url": "https://d2o12eq21my63z.cloudfront.net",
