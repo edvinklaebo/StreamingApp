@@ -1,59 +1,56 @@
 <template>
-  <div id="app">
-    <button @click="createNewTodo">Add Todo</button>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id">
-        {{todo.name}} - {{todo.description}}
-      </li>
-    </ul>
-  </div>
+      <div id="inner">
+          <div v-if="!signedIn">
+              <amplify-authenticator></amplify-authenticator>
+          </div>
+          <div v-if="signedIn">
+              <amplify-sign-out></amplify-sign-out>
+          </div>
+      </div>
 </template>
 
 <script>
-import API, {  graphqlOperation } from '@aws-amplify/api';
-// eslint-disable-next-line
-import { createTodo } from "./graphql/mutations";
-import { listTodos } from './graphql/queries'
-import { onCreateTodo } from './graphql/subscriptions'
-
+import { Auth } from 'aws-amplify'
+import { AmplifyEventBus } from 'aws-amplify-vue'
 export default {
-  name: 'app',
-  data(){
-    return {
-      todos: []
-    }
-  },
-  methods :{
-    async createNewTodo(){
-      const todo = { name: "Use AppSync" , description: "Realtime and Offline"}
-      await API.graphql(graphqlOperation(createTodo, { input: todo }))
-    },
-    async getData(){
-      const todoData = await API.graphql(graphqlOperation(listTodos))
-      this.todos.push(...this.todos, ...todoData.data.listTodos.items);
-    },
-    subscribe(){
-      API.graphql(graphqlOperation(onCreateTodo)).subscribe({
-        next: (eventData) => {
-          const todo = eventData.value.data.onCreateTodo;
-          this.todos.push(todo);
+    name: 'App',
+    data(){
+        return{
+            signedIn: false
         }
-      })
+    },
+    props: {
+        msg: String,
+    },
+    created(){
+        this.findUser();
+
+        AmplifyEventBus.$on('authState', info => {
+          if(info === "signedIn"){
+            this.findUser();
+          }else{
+            this.signedIn = false;
+          }
+        });
+    },
+    methods:{
+        async findUser(){
+            try{
+                const user = await Auth.currentAuthenticatedUser();
+                this.signedIn = true;
+
+                console.log(user);
+            }catch(err){
+                this.signedIn = false;
+            }
+        }
     }
-  },
-  created(){
-    this.getData()
-    this.subscribe()
-  }
-};
+}
 </script>
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+<style scoped>
+#inner {
+  display: table;
+  margin: 0 auto;
 }
 </style>
